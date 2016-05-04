@@ -13,4 +13,6 @@
 	Data Binding
 	Data Display & Charting
 
-#2
+#2	Data Visualization
+	The presentation of data in graphical/pictorial format.
+	D3 allows us to display data using HTML,SVG,CSS
