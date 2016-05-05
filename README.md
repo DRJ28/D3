@@ -16,3 +16,8 @@
 #2	Data Visualization
 	The presentation of data in graphical/pictorial format.
 	D3 allows us to display data using HTML,SVG,CSS
+
+#3 Selecting and data-binding
+	d3.select('h1') //selectAll('.className')
+			.text('Selected').insert().classed('name',true.remove)
+			.style('color', 'red');

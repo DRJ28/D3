@@ -2,12 +2,36 @@
 <html>
 <head>
 	<title>D3</title>
-	<link rel="icon" 
-      type="image/png" 
-      href="pan.png" />
 	<script src="js/d3.js" charset="utf-8"></script>
+	<script src="js/script.js"></script>
 </head>
 <body>
-
+	<h1>Welcome</h1>
+	<p>this is paragrapg</p>
+	<ul id="items">
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+		<li class="item">this is item</li>
+	</ul>
+	<script type="text/javascript">
+		/*d3.selectAll('.item:nth-child(2)')
+			.style('color', 'red')
+			.append('div')
+			.html('<b>Selected</b>');*/
+		d3.select('#items')
+			.insert('li',':nth-child(2n)')
+			.classed('item',true)
+			.html('this is new inserted item');
+			
+	</script>
 </body>
 </html>
