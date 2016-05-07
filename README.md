@@ -1,3 +1,4 @@
+<img src="d3.PNG" align="right" />
 # D3
 	learning javascript D3 data visualization library.
 #1	
