@@ -52,14 +52,14 @@
 			});
 
 #4 SVG-scalable vector graphics
-	-XML based vector image format for 2d graphics
-	-SVG supports interactivity and animation
-	-images and behavior are stored in XML file
+	->XML based vector image format for 2d graphics
+	->SVG supports interactivity and animation
+	->images and behavior are stored in XML file
 
-	##4.1 Basic Shapes
-		-<svg></svg>
-		-<text>text</text>
-		-<rect height='' width='' fill='' stroke-width='' stroke='color'>
-		-<circle cx='' cy='' r='' fill>
-		-<ellipse cx='' cy rx ry>
-		-<line x1 y1 x2 y2 style>
+##4.1 Basic Shapes
+	-><svg></svg>
+	-><text>text</text>
+	-><rect height='' width='' fill='' stroke-width='' stroke='color'>
+	-><circle cx='' cy='' r='' fill>
+	-><ellipse cx='' cy rx ry>
+	-[]<line x1 y1 x2 y2 style>
