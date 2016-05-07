@@ -17,14 +17,18 @@
 	The presentation of data in graphical/pictorial format.
 	D3 allows us to display data using HTML,SVG,CSS
 
-#3 Selecting and data-binding
+#3 Basics and styling
+##3.1 Selecting and data-binding
 	d3.select('h1') //selectAll('.className')
 			.text('Selected').insert().classed('name',true.remove)
 			.style('color', 'red');
 
-#3.1 Binding data to elements
+##3.2 Binding data to elements
 	var li = d3.selectAll('.item').data(number).text(function(d){
 											return 'i am num '+ d;
 										});
 	li.enter().append('li').text(fun);
 	li.exit().remove();
+
+##3.3 Complex data and styling
+	

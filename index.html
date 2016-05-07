@@ -15,12 +15,6 @@
 		<li class="item">this is item</li>
 		<li class="item">this is item</li>
 		<li class="item">this is item</li>
-		<li class="item">this is item</li>
-		<li class="item">this is item</li>
-		<li class="item">this is item</li>
-		<li class="item">this is item</li>
-		<li class="item">this is item</li>
-		<li class="item">this is item</li>
 	</ul>
 	<script type="text/javascript">
 		/*d3.selectAll('.item:nth-child(2)')
@@ -36,6 +30,24 @@
 			.data(number)
 			.style('font-size', function (d) {
 				return  d+'0px';
+			});
+	</script>
+
+
+	<h1>Top Exercise Method</h1>
+	<ul id='#list2'>
+		<li class="listItem">Running</li>
+		<li class="listItem">Elliptical</li>
+		<li class="listItem">Bike</li>
+		<li class="listItem">Free Weight</li>
+		<li class="listItem">Weighted Machines</li>
+	</ul>
+	<script>
+		var styles = ['red','green','blue','brown','pink'];
+		d3.selectAll('.listItem')
+			.data(styles)
+			.style('color', function(d){
+				return d;
 			});
 	</script>
 </body>
