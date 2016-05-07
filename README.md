@@ -21,3 +21,10 @@
 	d3.select('h1') //selectAll('.className')
 			.text('Selected').insert().classed('name',true.remove)
 			.style('color', 'red');
+
+#3.1 Binding data to elements
+	var li = d3.selectAll('.item').data(number).text(function(d){
+											return 'i am num '+ d;
+										});
+	li.enter().append('li').text(fun);
+	li.exit().remove();

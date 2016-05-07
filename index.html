@@ -31,7 +31,12 @@
 			.insert('li',':nth-child(2n)')
 			.classed('item',true)
 			.html('this is new inserted item');
-			
+		var number= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+		d3.selectAll('.item')
+			.data(number)
+			.style('font-size', function (d) {
+				return  d+'0px';
+			});
 	</script>
 </body>
 </html>
