@@ -31,4 +31,21 @@
 	li.exit().remove();
 
 ##3.3 Complex data and styling
-	
+	var styles = [
+			{'background':'#58FA58','color':'#FF0000','width': '10%'},
+			{'background':'#58FAF4','color':'#2A0A1B','width': '50%'},
+			{'background':'#F5A9BC','color':'#0B3B39','width': '70%'},
+			{'background':'#C8FE2E','color':'#3B0B17','width': '30%'},
+			{'background':'#FA5858','color':'#0B0B61','width': '60%'}
+		];		
+		d3.selectAll('.listItem')
+			.data(styles)
+			.style({
+				'font-size':'24px',
+				'color': function(d){return d.color},
+				'background': function(d){return d.background;},
+				'width': function(d){return d.width},
+				'padding':'5px',
+				'margin': '4px',
+				'list-style':'none'
+			});
