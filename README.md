@@ -57,9 +57,26 @@
 	->images and behavior are stored in XML file
 
 ##4.1 Basic Shapes
-	-><svg></svg>
-	-><text>text</text>
-	-><rect height='' width='' fill='' stroke-width='' stroke='color'>
-	-><circle cx='' cy='' r='' fill>
-	-><ellipse cx='' cy rx ry>
-	-[]<line x1 y1 x2 y2 style>
+	- ><svg></svg>
+	- ><text>text</text>
+	- ><rect x y height='' width='' fill='' stroke-width='' stroke='color'>
+	- ><circle cx='' cy='' r='' fill>
+	- ><ellipse cx='' cy rx ry>
+	- []<line x1 y1 x2 y2 style>
+
+##4.2 Simple Bar Chart
+	var chartData = [200,85,350,100,400,450,150], height = 500, width = 450, barWidth = 40, barOffset = 5;
+	var chart = d3.select('#charts').append('svg')
+					.attr('height', height).attr('width', width).style('background', 'yellow')
+					.selectAll('rect').data(chartData).enter().append('rect')
+						.style('fill','steelblue')
+						.attr('x', function(d, index){
+							return index * (barWidth + barOffset);
+						})
+						.attr('y', function(d){
+							return (height - d);
+						})
+						.attr('width', barWidth)
+						.attr('height', function(d){
+							return d;
+						})

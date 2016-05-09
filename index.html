@@ -71,5 +71,36 @@
 		<rect width=45 height=45 style='fill:rgb(255,0,0);stroke-width:3;stroke:rgb(0,0,0)' />
 		<circle cx='95' cy='95' fill='green' r=40 stroke-width='2' stroke='green'>
 	</svg>
+
+
+	<div id="charts">
+		
+	</div>
+	<script>
+		var chartData = [200,85,350,100,400,450,150];
+		var height = 500;
+		var width = 450;
+		var barWidth = 40;
+		var barOffset = 5;
+
+		var chart = d3.select('#charts').append('svg')
+						.attr('height', height)
+						.attr('width', width)
+						.style('background', 'yellow')
+						.selectAll('rect')
+						.data(chartData)
+						.enter().append('rect')
+							.style('fill','steelblue')
+							.attr('x', function(d, index){
+								return index * (barWidth + barOffset);
+							})
+							.attr('y', function(d){
+								return (height - d);
+							})
+							.attr('width', barWidth)
+							.attr('height', function(d){
+								return d;
+							})
+	</script>
 </body>
 </html>
