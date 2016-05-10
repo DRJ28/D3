@@ -77,12 +77,18 @@
 		
 	</div>
 	<script>
-		var chartData = [200,85,350,100,400,450,150];
+		var chartData = [2000,85,350,100,400,450,1500];
 		var height = 500;
 		var width = 450;
 		var barWidth = 40;
 		var barOffset = 5;
-
+		//scaling to y axis
+		var y = d3.scale.linear()
+					.domain([0, d3.max(chartData)])
+					.range([0, height]);
+		var x = d3.scale.ordinal()
+					.domain(d3.range(0, chartData.length))
+					.rangeBands([0, width]);
 		var chart = d3.select('#charts').append('svg')
 						.attr('height', height)
 						.attr('width', width)
@@ -92,14 +98,14 @@
 						.enter().append('rect')
 							.style('fill','steelblue')
 							.attr('x', function(d, index){
-								return index * (barWidth + barOffset);
+								return x(index);//index * (barWidth + barOffset);
 							})
 							.attr('y', function(d){
-								return (height - d);
+								return (height - y(d));
 							})
-							.attr('width', barWidth)
+							.attr('width', x.rangeBand())
 							.attr('height', function(d){
-								return d;
+								return y(d);
 							})
 	</script>
 </body>
