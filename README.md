@@ -80,3 +80,12 @@
 						.attr('height', function(d){
 							return d;
 						})
+						
+#5 Scaling
+	Convert high quantity into low range data to display it on screen
+	-Quantitative-- for continuous input domains, such as number
+	-Ordinal--for discrete input domain,such as name or categories
+	-Time Scales--for time domains						
+	##scaling to y-axis
+		var y = d3.scale.linear().domain([0, d3.max(chartData)]).range([0, height]);
+		var x = d3.scale.ordinal().domain(d3.range(0, chartData.length)).rangeBands([0, width]);						
