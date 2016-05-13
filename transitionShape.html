@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TransitionAndShape</title>
+	<script src="js/d3.js" charset="utf-8"></script>
+</head>
+<body>
+	<div id="shape">
+		
+	</div>
+	<script>
+		var shape = d3.select('#shape')
+						.append('svg')
+						.attr('height', 500)
+						.attr('width', 600)
+						.style('background','#f4f4f4');
+
+		repeat();
+		function repeat() {
+			shape.append('rect')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('height', 200)
+			.attr('width', 200)
+			.style('fill', 'red')
+			.transition().delay(1000).duration(500).ease('elastic')
+				.attr('x', 400)
+				.style('fill', 'blue')
+			.transition()
+				.attr('y', 300)
+				.style('fill', 'green')
+			.transition()
+				.attr('x', 0)
+				.style('fill', 'brown')
+			.transition()
+				.attr('y', 0)
+				.style('fill', 'yellow')
+				.remove()
+				.each('end', repeat);	
+		}
+		
+	</script>
+</body>
+</html>

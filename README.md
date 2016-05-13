@@ -89,3 +89,6 @@
 	##scaling to y-axis
 		var y = d3.scale.linear().domain([0, d3.max(chartData)]).range([0, height]);
 		var x = d3.scale.ordinal().domain(d3.range(0, chartData.length)).rangeBands([0, width]);						
+#6 Transition and Display
+	-chart.on('mouseover', function(d){})
+	-[transitionShape] transitionShape.html

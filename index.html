@@ -77,18 +77,30 @@
 		
 	</div>
 	<script>
-		var chartData = [2000,85,350,100,400,450,1500];
+		var chartData = [2000,85,350,100,400,450,1500,2000,85,350,100,400,450,1500];
 		var height = 500;
 		var width = 450;
 		var barWidth = 40;
 		var barOffset = 5;
 		//scaling to y axis
+		var tooltip = d3.select('body')
+						.append('div')
+						.style('position', 'absolute')
+						.style('background', '#333')
+						.style('opacity', 0)
+						.style('padding','5px 15px')
+						.style('border', '1px #000 solid')
+						.style('border-radius', '10px');
+		var currentColor = '';
 		var y = d3.scale.linear()
 					.domain([0, d3.max(chartData)])
 					.range([0, height]);
 		var x = d3.scale.ordinal()
 					.domain(d3.range(0, chartData.length))
 					.rangeBands([0, width]);
+		var color = d3.scale.linear()
+					.domain([0, chartData.length])
+					.range(['green','blue','yellow','brown']);
 		var chart = d3.select('#charts').append('svg')
 						.attr('height', height)
 						.attr('width', width)
@@ -96,7 +108,9 @@
 						.selectAll('rect')
 						.data(chartData)
 						.enter().append('rect')
-							.style('fill','steelblue')
+							.style('fill',function(d, i){
+								return color(i)
+							})
 							.attr('x', function(d, index){
 								return x(index);//index * (barWidth + barOffset);
 							})
@@ -106,7 +120,24 @@
 							.attr('width', x.rangeBand())
 							.attr('height', function(d){
 								return y(d);
-							})
+							});
+		chart.on('mouseover', function(d){
+			console.log(d);
+			tooltip.style('opacity', 1);
+			tooltip.html(d)
+				.style('left', (d3.event.pageX)+'px')
+				.style('top', (d3.event.pageY)+'px')
+			currentColor = this.style.fill;
+			d3.select(this)
+				.style('fill', '#1f9f3d')
+				.style('opacity',0.3);
+		});
+		chart.on('mouseout', function(d){
+			tooltip.style('opacity', 0);
+			d3.select(this)
+				.style('fill', currentColor)
+				.style('opacity',1)
+		});
 	</script>
 </body>
 </html>
