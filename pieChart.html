@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pie chart</title>
+	<script src="js/d3.js" charset="utf-8"></script>
+	<style type="text/css">
+		body{
+			background: #f4f4f4;
+			font-family:Arial;
+		}
+	</style>
+</head>
+<body>
+	<h1>Pie chart data</h1>
+	<div id="chart">
+		
+	</div>
+	<script>
+		var height = 400;
+		var width = 400;
+		var radius = 200;
+		var colors = d3.scale.category20();
+		var pieData = [
+			{
+				console: 'ps4',
+				purchases: 2000
+			},
+			{
+				console: 'X-box-1',
+				purchases: 2400
+			},
+			{
+				console: 'X-box-2',
+				purchases: 2040
+			},
+			{
+				console: 'Mario',
+				purchases: 1000
+			},
+			{
+				console: 'contra',
+				purchases: 1400
+			}
+		]
+
+		var pie = d3.layout.pie()
+					.value(function(d) {
+						return d.purchases;
+					});
+		var arc = d3.svg.arc()
+					.outerRadius(radius);
+		var chart = d3.select('#chart').append('svg')
+						.attr('height', height)
+						.attr('width', width)
+						.append('g')
+							.attr('transform', 'translate(' + (width - radius) + ',' + (height - radius) + ')')
+							.selectAll('path')
+							.data(pie(pieData))
+							.enter()
+							.append('g')
+							.attr('class', 'slice')
+		var slices = d3.selectAll('g.slice')
+						.append('path')
+						.attr('fill', function(d, i){
+							return colors(i);
+						})
+						.attr('d', arc)
+
+		var text = d3.selectAll('g.slice')
+						.append('text')
+						.text(function(d){
+							return d.data.console;
+						})
+						.attr('text-anchor', 'middle')
+						.attr('fill', 'white')
+						.attr('transform', function(d){
+							d.innerRadius = 0;
+							d.outerRadius = radius;
+							return 'translate('+ arc.centroid(d)+ ')'
+						})
+	</script>
+</body>
+</html>
